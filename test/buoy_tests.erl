@@ -27,7 +27,6 @@ buoy_test_() ->
     [
         fun custom_subtest/0,
         fun get_subtest/0,
-        % fun head_subtest/0,
         fun pool_subtest/0,
         fun post_subtest/0,
         fun put_subtest/0
@@ -47,13 +46,6 @@ get_subtest() ->
     {ok, ?RESP_1} = buoy:get(?URL(?URL_1), #{}),
     {ok, ?RESP_2} = buoy:get(?URL(?URL_2), #{}),
     {ok, ?RESP_4} = buoy:get(?URL(?URL_4), #{}).
-
-% head_subtest() ->
-%     {ok, ReqId} = buoy:async_head(?URL(?URL_1), #{}),
-%     {ok, ?RESP_1} = buoy:receive_response(ReqId),
-%     {ok, ?RESP_1} = buoy:head(?URL(?URL_1), #{}),
-%     {ok, ?RESP_2} = buoy:head(?URL(?URL_2), #{}),
-%     {ok, ?RESP_4} = buoy:head(?URL(?URL_4), #{}).
 
 pool_subtest() ->
     {error, pool_already_started} = buoy_pool:start(?URL(?URL_1)),

@@ -7,7 +7,6 @@
 -export([
     async_custom/3,
     async_get/2,
-    % async_head/2,
     async_post/2,
     async_put/2,
     async_request/3,
@@ -32,12 +31,6 @@ async_custom(Verb, Url, BuoyOpts) ->
 
 async_get(Url, BuoyOpts) ->
     async_request(get, Url, BuoyOpts).
-
-% -spec async_head(buoy_url(), buoy_opts()) ->
-%     {ok, shackle:request_id()} | error().
-%
-% async_head(Url, BuoyOpts) ->
-%     async_request(head, Url, BuoyOpts).
 
 -spec async_post(buoy_url(), buoy_opts()) ->
     {ok, shackle:request_id()} | error().
@@ -85,12 +78,6 @@ custom(Verb, Url, BuoyOpts) ->
 
 get(Url, BuoyOpts) ->
     request(get, Url, BuoyOpts).
-
-% -spec head(buoy_url(), buoy_opts()) ->
-%     {ok, buoy_resp()} | error().
-%
-% head(Url, BuoyOpts) ->
-%     request(head, Url, BuoyOpts).
 
 -spec post(buoy_url(), buoy_opts()) ->
     {ok, buoy_resp()} | error().

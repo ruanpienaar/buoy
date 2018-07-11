@@ -7,25 +7,18 @@
 -export([
     async_custom/3,
     async_get/2,
-    async_head/2,
+    % async_head/2,
     async_post/2,
     async_put/2,
     async_request/3,
     custom/3,
     get/2,
-    head/2,
+    % head/2,
     post/2,
     put/2,
     receive_response/1,
     request/3
 ]).
-
--type buoy_opts() :: #{
-    % headers =>
-    % body =>
-    % pid =>
-    % timeout =>
-}.
 
 %% public
 -spec async_custom(binary(), buoy_url(), buoy_opts()) ->
@@ -40,11 +33,11 @@ async_custom(Verb, Url, BuoyOpts) ->
 async_get(Url, BuoyOpts) ->
     async_request(get, Url, BuoyOpts).
 
--spec async_head(buoy_url(), buoy_opts()) ->
-    {ok, shackle:request_id()} | error().
-
-async_head(Url, BuoyOpts) ->
-    async_request(head, Url, BuoyOpts).
+% -spec async_head(buoy_url(), buoy_opts()) ->
+%     {ok, shackle:request_id()} | error().
+%
+% async_head(Url, BuoyOpts) ->
+%     async_request(head, Url, BuoyOpts).
 
 -spec async_post(buoy_url(), buoy_opts()) ->
     {ok, shackle:request_id()} | error().
@@ -93,11 +86,11 @@ custom(Verb, Url, BuoyOpts) ->
 get(Url, BuoyOpts) ->
     request(get, Url, BuoyOpts).
 
--spec head(buoy_url(), buoy_opts()) ->
-    {ok, buoy_resp()} | error().
-
-head(Url, BuoyOpts) ->
-    request(head, Url, BuoyOpts).
+% -spec head(buoy_url(), buoy_opts()) ->
+%     {ok, buoy_resp()} | error().
+%
+% head(Url, BuoyOpts) ->
+%     request(head, Url, BuoyOpts).
 
 -spec post(buoy_url(), buoy_opts()) ->
     {ok, buoy_resp()} | error().

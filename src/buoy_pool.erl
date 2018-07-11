@@ -22,14 +22,14 @@ init() ->
     foil:load(?MODULE).
 
 -spec lookup(protocol_http(), hostname(), inet:port_number()) ->
-    {ok, atom()} | {error, pool_already_started}.
+    {ok, atom()} | {error, pool_not_started}.
 
 lookup(Protocol, Hostname, Port) ->
     case foil:lookup(buoy_pool, {Protocol, Hostname, Port}) of
         {ok, _} = R ->
             R;
         {error, _} ->
-            {error, pool_already_started}
+            {error, pool_not_started}
     end.
 
 -spec start(buoy_url()) ->
